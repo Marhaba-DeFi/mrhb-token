@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "jshint": "^2.13.1",
+    "truffle-hdwallet-provider": "^1.0.17"
+  }
+}

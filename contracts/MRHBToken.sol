@@ -1,7 +1,9 @@
+// SPDX-License-Identifier: MIT
+
 pragma solidity 0.6.12;
 
-import "@openzeppelin/contracts/token/ERC20/ERC20Burnable.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
+import "./ERC20Burnable.sol";
+import "./Ownable.sol";
 
 contract MRHBToken is Ownable, ERC20Burnable {
   string private constant _name = "Marhaba DeFi";
