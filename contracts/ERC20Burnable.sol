@@ -2,7 +2,7 @@
 
 pragma solidity >=0.6.0 <0.8.0;
 
-import "./Context.sol";
+import "@openzeppelin/contracts/utils/Context.sol";
 import "./ERC20.sol";
 
 /**

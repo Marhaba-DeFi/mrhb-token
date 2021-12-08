@@ -3,7 +3,7 @@
 pragma solidity 0.6.12;
 
 import "./ERC20Burnable.sol";
-import "./Ownable.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract MRHBToken is Ownable, ERC20Burnable {
   string private constant _name = "Marhaba DeFi";
