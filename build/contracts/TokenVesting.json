@@ -29091,7 +29091,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.3",
-  "updatedAt": "2021-12-08T10:35:11.536Z",
+  "updatedAt": "2021-12-08T11:57:35.268Z",
   "devdoc": {
     "details": "Contract which gives the ability to act as a pool of funds for allocating   tokens to any number of other addresses. Token grants support the ability to vest over time in   accordance a predefined vesting schedule. A given wallet can receive no more than one token grant.",
     "kind": "dev",

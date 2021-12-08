@@ -8,7 +8,8 @@ module.exports = async function(deployer, network, accounts) {
     await deployer.deploy(MRHBToken, web3.utils.toBN("1000000000000000000000000000"));
     const mrhbToken = await MRHBToken.deployed();
     const mrhbOwnerBalance = await mrhbToken.balanceOf(accounts[0]);
+    const mrhbOwner = await mrhbToken.owner();
     
-    console.log("MRHBTestToken address: " + MRHBTestToken.address);
-    console.log("MRHB balance for " + mrhbOwnerBalance + " is: " + web3.utils.fromWei(balance.toString()));
+    console.log("MRHBTestToken address: " + mrhbToken.address);
+    console.log("MRHB balance for " + mrhbOwner + " is: " + web3.utils.fromWei(mrhbOwnerBalance.toString()));
 };
