@@ -18,25 +18,29 @@ module.exports = {
     },
     "bsc_mainnet": {
       network_id: 56,
-      confirmations: 5,
+      confirmations: 0,
       timeoutBlocks: 200,
       skipDryRun: true,
-      production: true ,
-      provider: () => new HDWalletProvider(mnemonic, "https://bsc-dataseed1.binance.org"),
+      gas: 3000000,
+      gasPrice: 10000000000,
+      networkCheckTimeout: 1000000000,
+      provider: () => new HDWalletProvider(mnemonic, "https://apis-sj.ankr.com/bde66c1254a54cd6b3a3a629f14bc70f/8f3dd4631ef832efadf6d81c4cc21311/binance/full/main"),
     }
   },
   api_keys: {
     bscscan: BSCSCANAPIKEY,
   },
   plugins: ['truffle-plugin-verify'],
-  mocha: {},
+  mocha: {
+    timeout: 100000
+  },
   compilers: {
     solc: {
-      version: "^0.6.12",
+      version: "0.6.12",
       settings: {
         optimizer: {
           enabled: false,
-          runs: 500
+          runs: 200
         },
         evmVersion: "byzantium"
       }
