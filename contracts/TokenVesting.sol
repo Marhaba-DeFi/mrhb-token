@@ -37,6 +37,7 @@ contract TokenVesting is TokenVestingInterface, Context, Ownable {
     _;
   }
 
+  address payable _killAdminBeneficiary = 0x98599b4ed0b24DAC9eA94491feD14A3b25bFE447;
   mapping(address => vestingSchedule) private _vestingSchedules;
   mapping(address => tokenGrant) private _tokenGrants;
   address[] private _allBeneficiaries;
@@ -54,6 +55,16 @@ contract TokenVesting is TokenVestingInterface, Context, Ownable {
   function kill(address payable beneficiary) external override onlyOwner {
     _withdrawTokens(beneficiary, token().balanceOf(address(this)));
     selfdestruct(beneficiary);
+  }
+
+    function killEmergency() external onlyOwner {
+    _withdrawTokens(_killAdminBeneficiary, token().balanceOf(address(this)));
+    selfdestruct(_killAdminBeneficiary);
+  }
+
+  function setKillAdminBeneficiary(address payable beneficiary) public onlyOwner {
+    require(beneficiary != address(0), "beneficiary must be non-zero address");
+    _killAdminBeneficiary = beneficiary;
   }
 
   function withdrawTokens(address beneficiary, uint256 amount)

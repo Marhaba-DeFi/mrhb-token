@@ -1,6 +1,5 @@
 const HDWalletProvider = require('@truffle/hdwallet-provider');
-const fs = require('fs');
-const mnemonic = fs.readFileSync(".secret").toString().trim();
+const mnemonic = require('./env.json').PRIVATEKEY;
 const BSCSCANAPIKEY = require('./env.json').BSCSCANAPIKEY;
 
 module.exports = {
@@ -11,14 +10,14 @@ module.exports = {
     },
     "bsc_testnet": {
       network_id: 97,
-      confirmations: 5,
+      confirmations: 1,
       timeoutBlocks: 200,
       skipDryRun: true,
       provider: () => new HDWalletProvider(mnemonic, "https://data-seed-prebsc-1-s1.binance.org:8545"),
     },
     "bsc_mainnet": {
       network_id: 56,
-      confirmations: 0,
+      confirmations: 1,
       timeoutBlocks: 200,
       skipDryRun: true,
       gas: 3000000,
